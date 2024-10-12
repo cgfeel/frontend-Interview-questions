@@ -242,3 +242,37 @@ export default MyComponent;
 在这个例子中 `handleClick` 回调函数在组件初次渲染时创建一次，因为依赖项数组为空。如果有依赖项，只有当依赖项发生变化时，才会重新创建回调函数。
 
 </details>
+
+### 🔴 函数组价和类组件处理重复渲染有什么区别？
+
+<details>
+
+<summary>答案：</summary>
+
+**函数组件**
+
+1. 利用 `React.memo`：将函数组件包裹在 `React.memo` 中来实现浅比较 `props` 的方式来减少重复渲染。当组件的 `props` 没有变化时，组件不会重新渲染。
+2. 依赖优化：在使用 `useEffect`、`useMemo` 和 `useCallback` 等 Hook 时，可以通过精确指定依赖项数组来控制何时触发副作用和计算新的值，从而避免不必要的重复渲染。
+
+`React.memo` 默认是浅比较，可以通过第 2 个参数进行深度检查：
+
+```tsx
+import { FC, memo } from "react";
+
+const MyComponent: FC<MyComProps> = ({ value }) => <>component: {value}</>;
+
+interface MyComProps {
+  value: string;
+}
+
+export default memo(MyComponent, (prev, next) => prev.value !== next.value);
+```
+
+**类组件**
+
+1. `shouldComponentUpdate`：重写类组件的 `shouldComponentUpdate` 方法来进行更细粒度的控制，决定是否进行重新渲染。该方法接收新的 `props` 和 `state` 作为参数，通过比较它们与当前的 `props` 和 `state`，返回一个布尔值来决定是否重新渲染组件。
+2. `PureComponent`：类组件可以继承 `React.PureComponent`，它会对 `props` 和 `state` 进行浅比较来决定是否重新渲染组件。但只进行浅比较，不够灵活。
+
+总的来说，函数组件在处理重复渲染时更加简洁和灵活，可以通过 `hook` 和 `React.memo` 等方式进行优化。而类组件则需要通过重写特定方法或继承特定类来实现类似的效果，相对来说较为复杂。
+
+</details>
