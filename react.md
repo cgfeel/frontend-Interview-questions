@@ -4,16 +4,35 @@
 
 <details>
 
-<summary>Tips for collapsed sections</summary>
+<summary>在 React 中，父组件可以通过以下几种方式获取子组件的方法：</summary>
 
-### You can add a header
+### 一、使用 refs
 
-You can add text within a collapsed section.
+1. 在父组件中创建一个 ref：
 
-You can add an image or a code block, too.
+```typescript
+const RefSubCom = forwardRef<SubRefInstance>((_, ref) => {
+  useImperativeHandle(ref, () => ({
+    callChildMethod: () => console.log("Ref child method called"),
+  }));
+  return <p>Ref children component</p>;
+});
 
-```ruby
-   puts "Hello World"
+const RefParentCom: FC = () => {
+  const comRef = useRef();
+  return (
+    <div>
+      <p>Ref parent component</p>
+      <p>
+        <button onClick={() => comRef.current?.callChildMethod()}>
+          click me
+        </button>
+      </p>
+      <hr />
+      <RefSubCom ref={comRef} />
+    </div>
+  );
+};
 ```
 
 </details>
