@@ -176,11 +176,7 @@ const ParentComponent: FC<PropsWithChildren> = ({ children }) => {
 
 **精确渲染**
 
-`React` 的 `diff` 是有计算成本的，用时间复杂度来看，初次渲染表单是 `O(n)`，字段输入时也是 `O(n)`。
-
-而 `formily` 采用 `MVVM` 设计模式。将视图模型抽象出来然后在 `DSL` 模板层消费，`DSL` 借助依赖收集机制在视图模型中统一调度，保证精确渲染。
-
-借助于 `Mobx` 从 `MVVM` 模型抽象出状态管理解决方案解决 `O(n)` 问题。`formily v2` 延续 `Mobx` 的核心思想设计了 `@formily/reactive`
+`formily` 采用 `MVVM` 设计模式。将视图模型抽象出来然后在 `DSL` 模板层消费，`DSL` 借助依赖收集机制在视图模型中统一调度，保证精确渲染。借助于 `Mobx` 从 `MVVM` 模型抽象出状态管理解决方案，设计出了 `@formily/reactive`。
 
 **领域模型**
 
