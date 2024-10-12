@@ -276,3 +276,46 @@ export default memo(MyComponent, (prev, next) => prev.value !== next.value);
 总的来说，函数组件在处理重复渲染时更加简洁和灵活，可以通过 `hook` 和 `React.memo` 等方式进行优化。而类组件则需要通过重写特定方法或继承特定类来实现类似的效果，相对来说较为复杂。
 
 </details>
+
+### 🔴 封装的按钮权限组件怎么实现？
+
+<details>
+
+<summary>答案：</summary>
+
+根据传递的 `props` 检查对应的状态，给出对应的视图
+
+1. 创建按钮组件通过 `props` 判断权限
+
+```tsx
+const CustomButton: FC<PropsWithChildren<CustomButtonProps>> = ({
+  children,
+  permissionKey,
+}) => {
+  const group = ["add", "edit"];
+  return group.includes(permissionKey) ? (
+    <button>{children}</button>
+  ) : (
+    <button disabled>{children}</button>
+  );
+};
+```
+
+2. 提供不同的 `key` 使用组件
+
+```tsx
+const App: FC = () => (
+  <>
+    <CustomButton permissionKey="add">Add</CustomButton>{" "}
+    <CustomButton permissionKey="disable">Del</CustomButton>
+  </>
+);
+```
+
+完整演示：https://codepen.io/levi0001/pen/abepYKK
+
+**总结**
+
+在实际应用中，可以根据具体的权限管理方案来获取用户权限信息，比如从后端获取用户角色信息后进行判断，或者使用状态管理库来存储和管理权限状态。同时，可以根据需要扩展组件的功能，如添加不同的按钮样式、处理点击事件等。
+
+</details>
