@@ -1,5 +1,28 @@
 # 整理 `React` 相关的面试题
 
+### `React` 中有对状态管理有做进一步封装吗
+
+<details>
+
+`React` 本身除了 `useContext` 和 `useReducer` 之外，没有内置的复杂状态管理方案，但它的生态系统中有很多流行的状态管理库，为复杂组件间的状态管理提供了进一步的封装和优化。
+
+### 主要的解决方案和封装
+
+1. **`Context API`：**
+
+- `React` 提供了 `Context API`，可以用来在不通过每一层组件传递 `props` 的情况下，全局共享状态。
+- 但当应用程序变得复杂时，单靠 `Context API` 管理状态会变得繁琐，并且可能导致性能问题，特别是组件不必要的重新渲染。
+
+2. **`React Redux`：**
+
+- 提供了一种可预测的方式来管理和集中应用的状态。
+- 通过中间件（如 `redux-thunk` 或 `redux-saga`），`Redux` 可以处理副作用。
+- 此外，`React-Redux` 可以更高效地将 `Redux` 与 `React` 组件结合起来。
+
+> `Redux Toolkit`：`Redux` 的封装，简化了传统 `Redux` 的配置，减少了样板代码，并提供了处理异步逻辑的 `createAsyncThunk` 工具。
+
+</details>
+
 ### `React` 中如何在父组件获取子组件的方法
 
 <details>
