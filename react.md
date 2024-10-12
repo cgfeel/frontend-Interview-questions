@@ -209,3 +209,36 @@ const ParentComponent: FC<PropsWithChildren> = ({ children }) => {
 3. **微组件化**：将微前端应用封装成 `web-component`，在主应用中动态加载，如：`micro-app`、`wujie` 默认模式。
 
 </details>
+
+### 🔴 `useCallback` 使用过没？
+
+<details>
+
+<summary>答案：</summary>
+
+`useCallback` 是 `React` 中的一个 `Hook`。它用于返回一个 `memoized` 回调函数，在依赖项不变的情况下，多次渲染之间始终返回相同的函数实例。这有助于避免在组件重新渲染时，因为回调函数的重新创建而导致子组件不必要的重新渲染。
+
+**使用场景**
+
+1. 当把回调函数传递给子组件时，如果这个回调函数在每次父组件渲染时都重新创建，可能会导致子组件的性能问题。使用 `useCallback` 可以避免这种情况。
+2. 在优化性能时，对于一些复杂的计算或可能频繁触发重新渲染的场景，使用 `useCallback` 可以确保只有在必要的时候才重新计算回调函数。
+
+**示例用法**
+
+```tsx
+import { FC, useCallback } from "react";
+
+const MyComponent: FC = () => {
+  const handleClick = useCallback(() => {
+    console.log("Button clicked");
+  }, []);
+
+  return <button onClick={handleClick}>Click me</button>;
+};
+
+export default MyComponent;
+```
+
+在这个例子中 `handleClick` 回调函数在组件初次渲染时创建一次，因为依赖项数组为空。如果有依赖项，只有当依赖项发生变化时，才会重新创建回调函数。
+
+</details>
