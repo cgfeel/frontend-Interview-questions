@@ -11,20 +11,6 @@
 1. 在父组件中创建一个 `ref`：
 
 ```tsx
-const RefSubCom = forwardRef<SubRefInstance>((_, ref) => {
-  useImperativeHandle(ref, () => ({
-    callChildMethod: () => console.log("Ref child method called"),
-  }));
-  return <p>Ref children component</p>;
-});
-interface SubRefInstance {
-  callChildMethod: () => viod;
-}
-```
-
-2. 在子组件中暴露需要被父组件调用的方法：
-
-```tsx
 const RefParentCom: FC = () => {
   const comRef = useRef();
   return (
@@ -40,6 +26,20 @@ const RefParentCom: FC = () => {
     </div>
   );
 };
+```
+
+2. 在子组件中暴露需要被父组件调用的方法：
+
+```tsx
+const RefSubCom = forwardRef<SubRefInstance>((_, ref) => {
+  useImperativeHandle(ref, () => ({
+    callChildMethod: () => console.log("Ref child method called"),
+  }));
+  return <p>Ref children component</p>;
+});
+interface SubRefInstance {
+  callChildMethod: () => viod;
+}
 ```
 
 完整实例：https://codepen.io/levi0001/pen/oNKBwwa
