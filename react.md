@@ -17,22 +17,22 @@ const RefSubCom = forwardRef<SubRefInstance>((_, ref) => {
   }));
   return <p>Ref children component</p>;
 });
-
-const RefParentCom: FC = () => {
-  const comRef = useRef();
-  return (
-    <div>
-      <p>Ref parent component</p>
-      <p>
-        <button onClick={() => comRef.current?.callChildMethod()}>
-          click me
-        </button>
-      </p>
-      <hr />
-      <RefSubCom ref={comRef} />
-    </div>
-  );
-};
 ```
+
+2. 在子组件中暴露需要被父组件调用的方法：
+
+```typescript
+const RefSubCom = forwardRef<SubRefInstance>((_, ref) => {
+  useImperativeHandle(ref, () => ({
+    callChildMethod: () => console.log("Ref child method called"),
+  }));
+  return <p>Ref children component</p>;
+});
+interface SubRefInstance {
+  callChildMethod: () => viod;
+}
+```
+
+完整实例：https://codepen.io/levi0001/pen/oNKBwwa
 
 </details>
