@@ -172,7 +172,7 @@ const ParentComponent: FC<PropsWithChildren> = ({ children }) => {
 3. **应用场景**：企业内部管理系统、移动应用开发、数据可视化
 4. **数据发展**：随着技术的不断进步，低代码开发平台将越来越智能化，能够自动生成更多的代码，进一步提高开发效率。同时，低代码开发也将与人工智能、大数据等技术相结合，为企业提供更强大的解决方案。
 
-由于我本人对 `formily` 比较了解，所以结合 `formily` 的特性在低代码中发挥的用途，我总结的 `formily` 的记录：https://github.com/cgfeel/formily
+由于我本人对 `formily` 比较了解，所以结合 `formily` 的特性在低代码中发挥的用途，我总结的 `formily` 记录：https://github.com/cgfeel/formily
 
 - 提供了开箱即用的开源低代码编辑器
 - 采用 `MVVM` 设计模式，精确渲染，将视图模型抽象出来，然后在 DSL 模板层消费
@@ -207,6 +207,8 @@ const ParentComponent: FC<PropsWithChildren> = ({ children }) => {
 1. **路由分发**：通过路由将不同的 `URL` 分配给不同的微前端应用，如：`qiankun`、`single-spa`。
 2. **组合式应用**：将多个微前端应用组合在一个页面中，通过 `iframe` 进行管理，如：`wujie` 降级模式 `degradee`。
 3. **微组件化**：将微前端应用封装成 `web-component`，在主应用中动态加载，如：`micro-app`、`wujie` 默认模式。
+
+我总结的微前端记录：https://github.com/cgfeel/zf-micro-app
 
 </details>
 
