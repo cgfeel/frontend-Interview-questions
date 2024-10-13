@@ -409,3 +409,7 @@ const App: FC = () => (
 3. `useTransition`：用于处理 “并发模式”（`Concurrent Mode`）的 `hook`，主要用于管理并发更新，使用户界面保持响应。
 
 </details>
+
+### 其他
+
+见 `javascript` 篇：https://github.com/cgfeel/frontend-interview-questions/blob/main/js.md#-%E6%95%B0%E7%BB%84%E5%90%88%E5%B9%B6%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E6%B3%95
