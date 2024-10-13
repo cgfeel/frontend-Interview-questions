@@ -203,3 +203,110 @@ fetch("/proxy")
 这种方法虽然可以实现跨域获取数据，但依赖于服务器的中间处理，增加了系统的复杂性。
 
 </details>
+
+### 🔴 如何写一个 `splite` 方法并覆盖数组的原方法？
+
+> 题目写的是 `split`，但这是 `String.prototype` 上的方法，我想问题应该是问 `splite`
+
+<details>
+
+<summary>归纳如下：</summary>
+
+先写一个统一的 `splite` 的方法用于覆盖使用，然后再通过不同的方式重写
+
+```js
+function defineSplice(start, deleteCount, ...items) {
+  const length = this.length;
+  if (start < 0) {
+    start = start >= -length ? length + start : 0;
+  }
+
+  if (deleteCount === undefined) {
+    deleteCount = length - start;
+  }
+
+  const removeItems = [];
+  const removeLength = start + deleteCount;
+
+  for (let i = start; i < removeLength; i++) {
+    removeItems.push(this[i]);
+  }
+
+  for (let i = removeLength, j = 0; j < items.length; i++, j++) {
+    this[i] = items[j];
+  }
+
+  this.length = length - deleteCount + items.length;
+  return removeItems;
+}
+```
+
+**1. 重写 `prototype`：**
+
+- 优点：兼容性好
+- 缺点：全局覆盖，可能造成意外问题
+
+```js
+// 重写方法，闭包运行避免污染
+(function () {
+  const originalSplice = Array.prototype.splice;
+  Array.prototype.splice = defineSplice;
+
+  const arr = [1, 2, 3, 4, 5];
+  const removed = arr.splice(1, 2, 10, 11);
+
+  console.log("rewrite property", arr);
+  console.log("remove", removed);
+
+  Array.prototype.splice = originalSplice;
+})();
+```
+
+**2. 通过 `proxy` 代理数组方法：**
+
+- 优点：不会造成全局污染
+- 缺点：不兼容 `ie`
+
+```js
+// 通过 proxy 代理重写 splice，缺点是不兼容 ie
+const arr = [1, 2, 3, 4, 5];
+const proxyArr = new Proxy(arr, {
+  get(target, property, args) {
+    if (property === "splice") {
+      return defineSplice;
+    }
+    return target[property];
+  },
+});
+
+const removeProxy = proxyArr.splice(1, 2, 10, 11);
+
+console.log("proxy array", arr);
+console.log("remove proxy", removeProxy);
+```
+
+**3. 通过 `defineProperty` 劫持数组方法：**
+
+- 优点：不会全局污染，兼容性比 `proxy` 要好
+- 缺点：一个劫持对应一个方法，相比 `proxy` 要繁琐
+
+```js
+// 通过 Object.defineProperty 劫持 splice，兼容 ie
+const arr1 = [1, 2, 3, 4, 5];
+const defineArr = Object.defineProperty({}, "splice", {
+  value: function (...args) {
+    return defineSplice.apply(this, args);
+  },
+});
+
+const defineRemove = defineArr.splice.call(arr1, 1, 2, 10, 11);
+
+console.log("define array", arr1);
+console.log("remove define", defineRemove);
+```
+
+> 注意这里劫持的是一个空对象，避免污染全局对象，通过 `call` 和 `apply` 修正指向
+
+完整实例：https://codepen.io/levi0001/pen/mdNRgVJ
+
+</details>
