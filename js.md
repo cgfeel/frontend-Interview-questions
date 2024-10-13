@@ -91,3 +91,115 @@ console.log(data1);
 - 对一些关键参数进行必填项检查，确保请求的完整性。
 
 </details>
+
+### 🔴 `localStorage` 如何跨域获取？
+
+<details>
+
+<summary>答案：</summary>
+
+`localStorage` 通常不能直接跨域获取。这是出于浏览器的安全考虑，不同源的网页不能随意访问彼此的 `localStorage` 数据。
+
+但是，可以通过一些特定的方法在一定程度上实现跨域数据共享：
+
+**使用 `postMessage` 和 `window.addEventListener`：**
+
+1. 在源页面（假设为 `http://example.com/page1.html`）中：
+
+```html
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      const targetOrigin = "http://anotherdomain.com";
+      window.addEventListener("message", function (event) {
+        if (event.origin === targetOrigin) {
+          // 响应来自目标页面的请求
+          event.source.postMessage(
+            { localStorageData: localStorage.getItem("key") },
+            targetOrigin
+          );
+        }
+      });
+      const iframe = document.createElement("iframe");
+      iframe.src = targetOrigin + "/receiver.html";
+      document.body.appendChild(iframe);
+    </script>
+  </body>
+</html>
+```
+
+2. 在目标页面（假设为 `http://anotherdomain.com/receiver.html`）中：
+
+```html
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      const sourceOrigin = "http://example.com";
+      window.addEventListener("message", function (event) {
+        if (event.origin === sourceOrigin) {
+          const data = event.data;
+          console.log(data.localStorageData);
+        }
+      });
+      const iframe = document.createElement("iframe");
+      iframe.src = sourceOrigin + "/page1.html";
+      document.body.appendChild(iframe);
+
+      // 向源页面发送请求
+      iframe.contentWindow.postMessage("request data", sourceOrigin);
+    </script>
+  </body>
+</html>
+```
+
+这种方法通过 `postMessage` 在两个不同源的窗口之间传递消息，从而实现数据的间接获取。但需要注意的是，这种方式需要双方页面的配合，并且要严格验证消息的来源以确保安全性。
+
+**使用代理服务器：**
+
+可以设置一个服务器端的代理，源页面将 `localStorage` 中的数据发送到代理服务器，目标页面从代理服务器获取数据。但这需要服务器端进行额外的开发和配置。
+
+例如：
+
+1. 源页面向代理服务器发送数据：
+
+```js
+const dataToSend = localStorage.getItem("key");
+fetch("/proxy", {
+  method: "POST",
+  body: JSON.stringify({ data: dataToSend }),
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+```
+
+2. 代理服务器接收并存储数据，当目标页面请求时返回数据：
+
+```js
+const express = require("express");
+const app = express();
+
+let storedData;
+app.post("/proxy", (req, res) => {
+  storedData = req.body.data;
+  res.sendStatus(200);
+});
+app.get("/proxy", (req, res) => {
+  res.json({ data: storedData });
+});
+app.listen(3000);
+```
+
+3. 目标页面从代理服务器获取数据：
+
+```js
+fetch("/proxy")
+  .then((response) => response.json())
+  .then((data) => console.log(data.data));
+```
+
+这种方法虽然可以实现跨域获取数据，但依赖于服务器的中间处理，增加了系统的复杂性。
+
+</details>
