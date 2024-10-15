@@ -311,4 +311,36 @@ console.log("remove define", defineRemove);
 
 </details>
 
-### 🔴 如何写一个 `splice` 方法并覆盖数组的原方法？
+### 🔴 `forEach` 循环和 `for` 循环哪个性能高？`forEach` 循环可以中断吗？
+
+<details>
+
+<summary>答案：</summary>
+
+**`forEach` 循环和 `for` 循环的性能比较：**
+
+在大多数情况下，简单的 `for` 循环性能可能会略高于 `forEach` 循环。这是因为 `forEach` 是一种函数调用的方式遍历数组，会有一些额外的函数调用开销。而 `for` 循环是一种更底层的遍历方式，在一些优化较好的 `JavaScript` 引擎中可能会有更好的性能表现。
+
+> 但是，性能差异通常非常小，在实际应用中，除非是在处理非常大规模的数据或者对性能要求极其苛刻的场景下，一般不太容易察觉到明显的性能差异。
+
+**中断循环**
+
+理论上 `forEach` 设计出来就是为了遍历每一个回调方法的。但可以通过以下 2 种方式任务中断循环：
+
+通过 `throw` 中断循环：
+
+```js
+const arr = [1, 2, 3, 4, 5];
+try {
+  arr.forEach((num) => {
+    if (num > 2) throw new Error("break forEach");
+    console.log(num);
+  });
+} catch (e) {
+  console.log(e.message);
+}
+```
+
+在这个例子中 `handleClick` 回调函数在组件初次渲染时创建一次，因为依赖项数组为空。如果有依赖项，只有当依赖项发生变化时，才会重新创建回调函数。
+
+</details>
