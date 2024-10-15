@@ -310,3 +310,5 @@ console.log("remove define", defineRemove);
 完整实例：https://codepen.io/levi0001/pen/mdNRgVJ
 
 </details>
+
+### 🔴 如何写一个 `splice` 方法并覆盖数组的原方法？
