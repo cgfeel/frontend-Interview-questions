@@ -327,7 +327,7 @@ console.log("remove define", defineRemove);
 
 理论上 `forEach` 设计出来就是为了遍历每一个回调方法的。但可以通过以下 2 种方式任务中断循环：
 
-通过 `throw` 中断循环：
+1. 通过 `throw` 中断循环：
 
 ```js
 const arr = [1, 2, 3, 4, 5];
@@ -341,6 +341,24 @@ try {
 }
 ```
 
-在这个例子中 `handleClick` 回调函数在组件初次渲染时创建一次，因为依赖项数组为空。如果有依赖项，只有当依赖项发生变化时，才会重新创建回调函数。
+2. 通过重写 `forEach`：
+
+```js
+// 重写 forEach
+Array.prototype.forEach = function customForEach(callback) {
+  for (let i = 0; i < this.length; i++) {
+    const result = callback(this[i], i, this);
+    if (result === false) break;
+  }
+};
+
+const arr1 = [1, 2, 3, 4, 5];
+arr1.forEach((item, index, array) => {
+  if (item > 2) return false;
+  console.log(item);
+});
+```
+
+完整实例：https://codepen.io/levi0001/pen/MWNpKJV
 
 </details>
