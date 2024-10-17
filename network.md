@@ -6,7 +6,7 @@
 
 <details>
 
-<summary>`HTTP/2` 相对于 `HTTP/1.1` 有以下主要更新：：</summary>
+<summary>`HTTP/2` 相对于 `HTTP/1.1` 有以下主要更新：</summary>
 
 **一、二进制分帧层**
 
