@@ -13,5 +13,3 @@ https://github.com/cgfeel/frontend-interview-questions/blob/main/js.md
 ### `React` 篇
 
 https://github.com/cgfeel/frontend-interview-questions/blob/main/react.md
-
-### `css` 篇
