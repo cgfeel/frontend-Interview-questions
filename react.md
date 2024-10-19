@@ -433,27 +433,97 @@ const App: FC = () => (
 例如，一个简单的展示用户信息的组件，用函数组件可以这样写：
 
 ```tsx
-const UserInfo: FC = ({ user }) => {
+const UserInfo: FC = ({ user }: { user: any }) => {
   return <div>Hello, {user.name}!</div>;
 };
 ```
 
-2. 提供不同的 `key` 使用组件
+而用类组件则需要更多的代码：
 
 ```tsx
-const App: FC = () => (
-  <>
-    <CustomButton permissionKey="add">Add</CustomButton>{" "}
-    <CustomButton permissionKey="disable">Del</CustomButton>
-  </>
-);
+class UserInfo extends React.Component {
+  render() {
+    const { user } = this.props;
+    return <div>Hello, {user.name}!</div>;
+  }
+}
 ```
 
-完整演示：https://codepen.io/levi0001/pen/abepYKK
+**2. 易于理解和维护**
 
-**总结**
+- 函数组件的简洁性使得代码更易于理解和维护。开发者可以更快地阅读和理解函数组件的逻辑，减少了在复杂的类结构中寻找特定功能的时间。
+- 对于新加入项目的开发者来说，理解函数组件的代码通常比理解类组件更容易，提高了团队的开发效率。
 
-在实际应用中，可以根据具体的权限管理方案来获取用户权限信息，比如从后端获取用户角色信息后进行判断，或者使用状态管理库来存储和管理权限状态。同时，可以根据需要扩展组件的功能，如添加不同的按钮样式、处理点击事件等。
+#### 二、性能优化
+
+**1. 减少不必要的重新渲染**
+
+- `React` 中的函数组件在某些情况下可以更好地利用 `React` 的优化机制，减少不必要的重新渲染。
+- 函数组件可以使用 `React` 的钩子（`hooks`）来管理状态和副作用，通过使用 `useMemo` 和 `useCallback` 等钩子，可以缓存计算结果和函数引用，避免在每次渲染时都重新计算和创建新的函数，从而提高性能。
+
+例如：
+
+```tsx
+const MyComponent: FC = ({ data }: { data: any }) => {
+  const memoizedValue = useMemo(() => expensiveComputation(data), [data]);
+  return <div>{memoizedValue}</div>;
+};
+```
+
+**2. 更好的性能优化工具**
+
+- `React` 团队在不断优化函数组件的性能，并提供了更多的性能优化工具和技术。例如，`React` 的新特性 `React.memo` 可以对函数组件进行浅比较，只在 `props` 发生变化时才重新渲染组件，进一步提高了性能。
+- 相比之下，类组件的性能优化相对较为复杂，需要手动管理生命周期方法和状态更新，容易出现错误和性能问题。
+
+#### 三、更好的逻辑复用
+
+**1. 自定义钩子**
+
+- 函数组件可以使用自定义钩子来封装和复用逻辑。自定义钩子是一个函数，它可以在多个函数组件中调用，实现逻辑的复用。
+
+例如，可以创建一个用于获取用户数据的自定义钩子：
+
+```tsx
+import { useState, useEffect } from "react";
+
+const useUserData: () => null | { name: string } = () => {
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    fetchUserData().then((data) => setUserData(data));
+  }, []);
+
+  return userData;
+};
+
+const MyComponent: FC = () => {
+  const userData = useUserData();
+  return <div>{userData ? userData.name : "Loading..."}</div>;
+};
+```
+
+> 这样，多个组件可以共享获取用户数据的逻辑，提高了代码的可维护性和可复用性。
+
+**2. 组合优于继承**
+
+- 函数组件更符合组合优于继承的原则。通过组合不同的函数组件和自定义钩子，可以轻松地构建复杂的用户界面，而不需要依赖类的继承关系。
+- 继承在某些情况下可能会导致代码的复杂性增加，并且难以理解和维护。函数组件的组合方式更加灵活，可以根据具体需求自由地组合和拆分组件，提高了代码的可扩展性和可维护性。
+
+#### 四、与现代开发工具和技术的兼容性
+
+**1. 更好地支持 `TypeScript`**
+
+- 函数组件与 `TypeScript` 的结合更加自然和方便。`TypeScript` 可以更好地推断函数组件的类型，提供更强大的类型检查和智能提示，减少类型错误的发生。
+- 相比之下，类组件在与 `TypeScript` 结合时可能需要更多的类型定义和手动处理，增加了开发的复杂性。
+
+**2. 与新的 `React` 特性和库的兼容性更好**
+
+- `React` 不断推出新的特性和优化，函数组件通常更容易适应这些变化。例如，`React` 的并发模式和 `Suspense` 等新特性在函数组件中使用更加方便和自然。
+- 同时，许多新的 `React` 库和工具也更倾向于支持函数组件，使得开发者可以更轻松地使用这些工具来构建应用程序。
+
+#### 总结
+
+综上所述，`React` 使用函数组件代替类组件具有简洁性、性能优化、更好的逻辑复用和与现代开发工具的兼容性等优势。函数组件的出现使得 `React` 开发更加高效、灵活和可维护，成为现代 `React` 开发的主流方式。
 
 </details>
 
