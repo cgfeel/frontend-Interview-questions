@@ -418,7 +418,44 @@ const App: FC = () => (
 
 以下问题来自 `gate.io` 1 面：
 
-### 🔴 `React` 为什么用 `function` 组件代替 `class` 组件
+### 🔴 `React` 为什么用 `function` 组件代替 `class` 组件？
+
+<details>
+
+<summary>在 React 中，越来越倾向于使用函数组件代替类组件，主要有以下几个原因：：</summary>
+
+#### 一、简洁性
+
+**1. 代码更简洁**
+
+函数组件通常比类组件更简洁明了。它们以函数的形式定义组件，没有类的复杂语法和结构，减少了代码的行数和复杂度。
+
+例如，一个简单的展示用户信息的组件，用函数组件可以这样写：
+
+```tsx
+const UserInfo: FC = ({ user }) => {
+  return <div>Hello, {user.name}!</div>;
+};
+```
+
+2. 提供不同的 `key` 使用组件
+
+```tsx
+const App: FC = () => (
+  <>
+    <CustomButton permissionKey="add">Add</CustomButton>{" "}
+    <CustomButton permissionKey="disable">Del</CustomButton>
+  </>
+);
+```
+
+完整演示：https://codepen.io/levi0001/pen/abepYKK
+
+**总结**
+
+在实际应用中，可以根据具体的权限管理方案来获取用户权限信息，比如从后端获取用户角色信息后进行判断，或者使用状态管理库来存储和管理权限状态。同时，可以根据需要扩展组件的功能，如添加不同的按钮样式、处理点击事件等。
+
+</details>
 
 ### 🔴 其他
 
