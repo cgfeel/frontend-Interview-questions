@@ -410,6 +410,16 @@ const App: FC = () => (
 
 </details>
 
-### 其他
+### 🔴 其他
 
 见 `javascript` 篇：https://github.com/cgfeel/frontend-interview-questions/blob/main/js.md#-%E6%95%B0%E7%BB%84%E5%90%88%E5%B9%B6%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E6%B3%95
+
+---
+
+以下问题来自 `gate.io` 1 面：
+
+### 🔴 `React` 为什么用 `function` 组件代替 `class` 组件
+
+### 🔴 其他
+
+见网络篇：https://github.com/cgfeel/frontend-interview-questions/blob/main/network.md#-http2-%E7%9B%B8%E5%AF%B9%E4%BA%8E-http11-%E6%9B%B4%E6%96%B0%E4%BA%86%E4%BB%80%E4%B9%88
