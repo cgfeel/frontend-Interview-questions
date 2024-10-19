@@ -362,3 +362,7 @@ arr1.forEach((item, index, array) => {
 完整实例：https://codepen.io/levi0001/pen/MWNpKJV
 
 </details>
+
+### 🔴 其他
+
+见 `react` 篇：https://github.com/cgfeel/frontend-interview-questions/blob/main/react.md#-react-%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B-hooks
