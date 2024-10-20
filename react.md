@@ -422,7 +422,7 @@ const App: FC = () => (
 
 <details>
 
-<summary>在 React 中，越来越倾向于使用函数组件代替类组件，主要有以下几个原因：：</summary>
+<summary>在 React 中，越来越倾向于使用函数组件代替类组件，主要有以下几个原因：</summary>
 
 #### 一、简洁性
 
