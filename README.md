@@ -57,3 +57,7 @@ https://github.com/cgfeel/frontend-interview-questions/blob/main/document/js.md
 https://github.com/cgfeel/frontend-interview-questions/blob/main/document/react.md
 
 ## 来源索引
+
+### 百安居 1 面
+
+- `React` 中有对状态管理有做进一步封装吗？ [[查看]()]
