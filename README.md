@@ -58,7 +58,7 @@ https://github.com/cgfeel/frontend-interview-questions/blob/main/document/react.
 
 ### 前端场景篇
 
-https://github.com/cgfeel/frontend-interview-questions/blob/main/document/other-library.md
+https://github.com/cgfeel/frontend-interview-questions/blob/main/document/scene.md
 
 ## 来源索引
 
