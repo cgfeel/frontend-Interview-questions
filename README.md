@@ -46,14 +46,14 @@
 
 ### 网络篇
 
-https://github.com/cgfeel/frontend-interview-questions/blob/main/network.md
+https://github.com/cgfeel/frontend-interview-questions/blob/main/document/network.md
 
 ### `javascript` 篇
 
-https://github.com/cgfeel/frontend-interview-questions/blob/main/js.md
+https://github.com/cgfeel/frontend-interview-questions/blob/main/document/js.md
 
 ### `React` 篇
 
-https://github.com/cgfeel/frontend-interview-questions/blob/main/react.md
+https://github.com/cgfeel/frontend-interview-questions/blob/main/document/react.md
 
 ## 来源索引
