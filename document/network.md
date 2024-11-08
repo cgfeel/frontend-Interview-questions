@@ -1,8 +1,8 @@
 # 整理网络相关的面试题
 
-以下问题来自 `gate.io` 1 面：
-
 ### 🔴 `http/2` 相对于 `http/1.1` 更新了什么？
+
+来自：`gate.io`
 
 <details>
 
@@ -41,6 +41,8 @@
 </details>
 
 ### 🔴 请聊一下 `http3`？
+
+来自：`gate.io`
 
 <details>
 
@@ -94,6 +96,8 @@
 
 ### 🔴 `HTTP/3` 这么好为什么用的人不多？
 
+来自：`题目衍伸`
+
 <details>
 
 <summary>尽管 HTTP/3 有诸多优势，但使用的人不多，主要有以下原因：</summary>
@@ -124,15 +128,9 @@
 
 </details>
 
-### 🔴 其他
-
-见 `react` 篇：https://github.com/cgfeel/frontend-interview-questions/blob/main/react.md#-react-%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8-function-%E7%BB%84%E4%BB%B6%E4%BB%A3%E6%9B%BF-class-%E7%BB%84%E4%BB%B6
-
----
-
-以下问题来自 `群友`：
-
 ### 🔴 `URL` 输入地址发生什么？
+
+来自：`异联信息 1 面`
 
 <details>
 
