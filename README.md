@@ -15,7 +15,7 @@
 - 其他面试，没有标准答案下：以各大 `GPT` 答案为准
 - 重要：若以上答案出现遗漏偏差，再根据实际情况复盘，修复
 
-> 目前已有题目做复盘修复
+> 目前已有题目做复盘修复，尤其是 `GPT` 给出的答案可能考虑的角度并没有那么深入
 
 要求：
 
@@ -56,4 +56,4 @@ https://github.com/cgfeel/frontend-interview-questions/blob/main/js.md
 
 https://github.com/cgfeel/frontend-interview-questions/blob/main/react.md
 
-## 出处索引
+## 来源索引
