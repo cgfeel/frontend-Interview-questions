@@ -56,7 +56,7 @@ https://github.com/cgfeel/frontend-interview-questions/blob/main/document/js.md
 
 https://github.com/cgfeel/frontend-interview-questions/blob/main/document/react.md
 
-### 其他框架和库
+### 前端场景篇
 
 https://github.com/cgfeel/frontend-interview-questions/blob/main/document/other-library.md
 
