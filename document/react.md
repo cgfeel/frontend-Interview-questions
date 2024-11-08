@@ -367,7 +367,7 @@ const App: FC = () => (
 
 ### 🔴 `React` 为什么用 `function` 组件代替 `class` 组件？
 
-来自：`gate.io 1 面`
+来自：`gate.io`
 
 <details>
 
