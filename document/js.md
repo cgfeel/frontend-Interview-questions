@@ -1,6 +1,6 @@
 # 整理 `javascript` 相关的面试题
 
-### 🔴 数组合并有哪些方法？
+### 🧑‍💻 数组合并有哪些方法？
 
 来自：`万云科技`
 
@@ -94,7 +94,7 @@ console.log(data1);
 
 </details>
 
-### 🔴 `localStorage` 如何跨域获取？
+### 🧑‍💻 `localStorage` 如何跨域获取？
 
 来自：`万云科技`
 
@@ -208,7 +208,7 @@ fetch("/proxy")
 
 </details>
 
-### 🔴 如何写一个 `splice` 方法并覆盖数组的原方法？
+### 🧑‍💻 如何写一个 `splice` 方法并覆盖数组的原方法？
 
 来自：`万云科技`
 
@@ -317,7 +317,7 @@ console.log("remove define", defineRemove);
 
 </details>
 
-### 🔴 `forEach` 循环和 `for` 循环哪个性能高？`forEach` 循环可以中断吗？
+### 🧑‍💻 `forEach` 循环和 `for` 循环哪个性能高？`forEach` 循环可以中断吗？
 
 来自：`万云科技`
 
