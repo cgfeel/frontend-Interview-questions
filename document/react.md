@@ -196,7 +196,7 @@ export default MyComponent;
 
 ### 🔴 函数组价和类组件处理重复渲染有什么区别？
 
-来自：`百安居 1 面`
+来自：`百安居`
 
 <details>
 
