@@ -230,9 +230,9 @@ export default memo(MyComponent, (prev, next) => prev.value !== next.value);
 
 </details>
 
-### 🔴 封装的按钮权限组件怎么实现？
+### 🧑‍💻 封装的按钮权限组件怎么实现？
 
-来自：`百安居 1 面`
+来自：`百安居`
 
 <details>
 
