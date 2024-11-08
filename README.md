@@ -84,3 +84,12 @@ https://github.com/cgfeel/frontend-interview-questions/blob/main/document/open.m
 8. 封装的按钮权限组件怎么实现？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/react.md#-%E5%B0%81%E8%A3%85%E7%9A%84%E6%8C%89%E9%92%AE%E6%9D%83%E9%99%90%E7%BB%84%E4%BB%B6%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0)]
 9. 数据什么时候定义在组件里面，什么时候定义在状态管理里面？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/react.md#-%E6%95%B0%E6%8D%AE%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%AE%9A%E4%B9%89%E5%9C%A8%E7%BB%84%E4%BB%B6%E9%87%8C%E9%9D%A2%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%AE%9A%E4%B9%89%E5%9C%A8%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E9%87%8C%E9%9D%A2)]
 10. 方法什么时候写在父组件中，什么时候写在子组件中？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/react.md#-%E6%96%B9%E6%B3%95%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%86%99%E5%9C%A8%E7%88%B6%E7%BB%84%E4%BB%B6%E4%B8%AD%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%86%99%E5%9C%A8%E5%AD%90%E7%BB%84%E4%BB%B6%E4%B8%AD)]
+
+### 万云科技
+
+1. `react` 用过哪些 `hooks`？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/react.md#-react-%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B-hooks)]
+2. 数组合并有哪些方法？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/js.md#-%E6%95%B0%E7%BB%84%E5%90%88%E5%B9%B6%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E6%B3%95)]
+3. 请求参数如何防篡改？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/js.md#-%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E5%A6%82%E4%BD%95%E9%98%B2%E7%AF%A1%E6%94%B9)]
+4. `localStorage` 如何跨域获取？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/js.md#-localstorage-%E5%A6%82%E4%BD%95%E8%B7%A8%E5%9F%9F%E8%8E%B7%E5%8F%96)]
+5. 如何写一个 `splice` 方法并覆盖数组的原方法？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/js.md#-%E5%A6%82%E4%BD%95%E5%86%99%E4%B8%80%E4%B8%AA-splice-%E6%96%B9%E6%B3%95%E5%B9%B6%E8%A6%86%E7%9B%96%E6%95%B0%E7%BB%84%E7%9A%84%E5%8E%9F%E6%96%B9%E6%B3%95)]
+6. `forEach` 循环和 `for` 循环哪个性能高？`forEach` 循环可以中断吗？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/js.md#-foreach-%E5%BE%AA%E7%8E%AF%E5%92%8C-for-%E5%BE%AA%E7%8E%AF%E5%93%AA%E4%B8%AA%E6%80%A7%E8%83%BD%E9%AB%98foreach-%E5%BE%AA%E7%8E%AF%E5%8F%AF%E4%BB%A5%E4%B8%AD%E6%96%AD%E5%90%97)]
