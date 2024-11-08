@@ -64,6 +64,10 @@ https://github.com/cgfeel/frontend-interview-questions/blob/main/document/react.
 
 https://github.com/cgfeel/frontend-interview-questions/blob/main/document/scene.md
 
+### 开放问题篇
+
+https://github.com/cgfeel/frontend-interview-questions/blob/main/document/scene.md
+
 ## 来源索引
 
 归纳有明确出处的面试题
