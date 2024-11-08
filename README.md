@@ -64,5 +64,5 @@ https://github.com/cgfeel/frontend-interview-questions/blob/main/document/other-
 
 ### 百安居 1 面
 
-- `React` 中有对状态管理有做进一步封装吗？ [[查看](/blob/main/document/react.md#-react-%E4%B8%AD%E6%9C%89%E5%AF%B9%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E6%9C%89%E5%81%9A%E8%BF%9B%E4%B8%80%E6%AD%A5%E5%B0%81%E8%A3%85%E5%90%97)]
-- `React` 中如何在父组件获取子组件的方法？ [[查看](/blob/main/document/react.md#-react-%E4%B8%AD%E5%A6%82%E4%BD%95%E5%9C%A8%E7%88%B6%E7%BB%84%E4%BB%B6%E8%8E%B7%E5%8F%96%E5%AD%90%E7%BB%84%E4%BB%B6%E7%9A%84%E6%96%B9%E6%B3%95)]
+- `React` 中有对状态管理有做进一步封装吗？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/react.md#-react-%E4%B8%AD%E6%9C%89%E5%AF%B9%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E6%9C%89%E5%81%9A%E8%BF%9B%E4%B8%80%E6%AD%A5%E5%B0%81%E8%A3%85%E5%90%97)]
+- `React` 中如何在父组件获取子组件的方法？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/react.md#-react-%E4%B8%AD%E5%A6%82%E4%BD%95%E5%9C%A8%E7%88%B6%E7%BB%84%E4%BB%B6%E8%8E%B7%E5%8F%96%E5%AD%90%E7%BB%84%E4%BB%B6%E7%9A%84%E6%96%B9%E6%B3%95)]
