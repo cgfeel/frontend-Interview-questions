@@ -25,9 +25,9 @@
 
 归纳方式，分为 3 块：
 
-- 问题归类整理：分 `js` 基础、网络、`React` 等，存放在 `/document` [[查看](https://github.com/cgfeel/frontend-interview-questions/tree/main/document)]
+- 问题归类整理：分 `js` 基础、网络、`React` 等，存放在 `/document` [[查看](#问题整理)]
+- 根据来源索引问题：直接通过 `README` 整理 [[查看](#来源索引)]
 - 实例演示：目前通过 `codepen` 完成
-- 根据来源索引问题：直接通过 `README` 整理
 
 > 没有索引来源的问题全部来自网友提供
 
