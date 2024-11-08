@@ -60,4 +60,4 @@ https://github.com/cgfeel/frontend-interview-questions/blob/main/document/react.
 
 ### 百安居 1 面
 
-- `React` 中有对状态管理有做进一步封装吗？ [[查看]()]
+- `React` 中有对状态管理有做进一步封装吗？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/react.md#-react-%E4%B8%AD%E6%9C%89%E5%AF%B9%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E6%9C%89%E5%81%9A%E8%BF%9B%E4%B8%80%E6%AD%A5%E5%B0%81%E8%A3%85%E5%90%97)]
