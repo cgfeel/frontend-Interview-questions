@@ -1,8 +1,8 @@
 # 整理 `javascript` 相关的面试题
 
-以下问题来自 `万云科技`：
-
 ### 🔴 数组合并有哪些方法？
+
+来自：`万云科技`
 
 <details>
 
@@ -50,6 +50,8 @@ console.log(data1);
 
 ### 🔴 请求参数如何防篡改？
 
+来自：`万云科技`
+
 <details>
 
 <summary>以下是一些防止请求参数被篡改的方法：</summary>
@@ -93,6 +95,8 @@ console.log(data1);
 </details>
 
 ### 🔴 `localStorage` 如何跨域获取？
+
+来自：`万云科技`
 
 <details>
 
@@ -206,6 +210,8 @@ fetch("/proxy")
 
 ### 🔴 如何写一个 `splice` 方法并覆盖数组的原方法？
 
+来自：`万云科技`
+
 > 题目写的是 `split`，但这是 `String.prototype` 上的方法，我想问题应该是问 `splice`
 
 <details>
@@ -313,6 +319,8 @@ console.log("remove define", defineRemove);
 
 ### 🔴 `forEach` 循环和 `for` 循环哪个性能高？`forEach` 循环可以中断吗？
 
+来自：`万云科技`
+
 <details>
 
 <summary>答案：</summary>
@@ -362,7 +370,3 @@ arr1.forEach((item, index, array) => {
 完整实例：https://codepen.io/levi0001/pen/MWNpKJV
 
 </details>
-
-### 🔴 其他
-
-见 `react` 篇：https://github.com/cgfeel/frontend-interview-questions/blob/main/react.md#-react-%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B-hooks
