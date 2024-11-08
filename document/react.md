@@ -1,8 +1,8 @@
 # 整理 `React` 相关的面试题
 
-以下问题来自 `百安居` 1 面：
-
 ### 🔴 `React` 中有对状态管理有做进一步封装吗？
+
+来自：`百安居 1 面`
 
 <details>
 
@@ -10,7 +10,7 @@
 
 `React` 本身除了 `useContext` 和 `useReducer` 之外，没有内置的复杂状态管理方案，但它的生态系统中有很多流行的状态管理库，为复杂组件间的状态管理提供了进一步的封装和优化。
 
-### 主要的解决方案和封装
+#### 主要的解决方案和封装
 
 1. **`Context API`：**
 
@@ -53,7 +53,7 @@
 - 虽然 `React Query` 不是纯粹的状态管理库，但它是管理服务器状态（如 `API` 数据）的利器
 - 简化了数据获取逻辑、缓存、同步和更新等操作，特别适合处理异步数据。
 
-### 总结:
+#### 总结:
 
 `React` 的核心功能可以通过不同的状态管理解决方案得到扩展，如 `Redux`、`Recoil`、`MobX` 等。这些解决方案根据项目的复杂性，为状态管理提供了不同的优化，通常在管理大规模应用时提升性能并简化代码组织。具体使用哪一个取决于项目的需求。
 
@@ -61,11 +61,13 @@
 
 ### 🔴 `React` 中如何在父组件获取子组件的方法？
 
+来自：`百安居 1 面`
+
 <details>
 
 <summary>在 React 中，父组件可以通过以下几种方式获取子组件的方法：</summary>
 
-### 一、使用 `refs`
+#### 一、使用 `refs`
 
 1. 在父组件中创建一个 `ref`：
 
@@ -103,7 +105,7 @@ interface SubRefInstance {
 
 完整实例：https://codepen.io/levi0001/pen/oNKBwwa
 
-### 二、通过 `context` 父组件调用子组件的方法
+#### 二、通过 `context` 父组件调用子组件的方法
 
 1. 创建一个 `context`，并包裹在父子组件最外层：
 
@@ -159,11 +161,13 @@ const ParentComponent: FC<PropsWithChildren> = ({ children }) => {
 
 ### 🔴 低代码和微前端有了解吗？
 
+来自：`百安居 1 面`
+
 <details>
 
 <summary>答案：</summary>
 
-### 低代码
+#### 低代码
 
 低代码是一种快速开发应用程序的方法，有以下几个特性：
 
@@ -186,7 +190,7 @@ const ParentComponent: FC<PropsWithChildren> = ({ children }) => {
   - `@formily/react`：桥接 `react`，使其拥有调用 `formily` 能力
   - `@formily/antd-v5`：`UI` 库之一，作为模型下的组件库，也可以自定义或适配第三方库
 
-### 微前端
+#### 微前端
 
 微前端是一种将前端应用拆分为多个独立小型前端应用的架构模式。
 
@@ -213,6 +217,8 @@ const ParentComponent: FC<PropsWithChildren> = ({ children }) => {
 </details>
 
 ### 🔴 `useCallback` 使用过没？
+
+来自：`百安居 1 面`
 
 <details>
 
@@ -247,6 +253,8 @@ export default MyComponent;
 
 ### 🔴 函数组价和类组件处理重复渲染有什么区别？
 
+来自：`百安居 1 面`
+
 <details>
 
 <summary>答案：</summary>
@@ -280,6 +288,8 @@ export default memo(MyComponent, (prev, next) => prev.value !== next.value);
 </details>
 
 ### 🔴 封装的按钮权限组件怎么实现？
+
+来自：`百安居 1 面`
 
 <details>
 
@@ -324,6 +334,8 @@ const App: FC = () => (
 
 ### 🔴 数据什么时候定义在组件里面，什么时候定义在状态管理里面？
 
+来自：`百安居 1 面`
+
 <details>
 
 <summary>一般来说，可以从以下几个方面考虑数据定义的位置：</summary>
@@ -343,6 +355,8 @@ const App: FC = () => (
 </details>
 
 ### 🔴 方法什么时候写在父组件中，什么时候写在子组件中？
+
+来自：`百安居 1 面`
 
 <details>
 
@@ -365,6 +379,8 @@ const App: FC = () => (
 以下问题来自 `万云科技`：
 
 ### 🔴 `react` 用过哪些 `hooks`？
+
+来自：`万云科技`、`异联信息 1 面`
 
 <details>
 
@@ -410,15 +426,11 @@ const App: FC = () => (
 
 </details>
 
-### 🔴 其他
-
-见 `javascript` 篇：https://github.com/cgfeel/frontend-interview-questions/blob/main/js.md#-%E6%95%B0%E7%BB%84%E5%90%88%E5%B9%B6%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E6%B3%95
-
----
-
 以下问题来自 `gate.io` 1 面：
 
 ### 🔴 `React` 为什么用 `function` 组件代替 `class` 组件？
+
+来自：`gate.io 1 面`
 
 <details>
 
@@ -526,7 +538,3 @@ const MyComponent: FC = () => {
 综上所述，`React` 使用函数组件代替类组件具有简洁性、性能优化、更好的逻辑复用和与现代开发工具的兼容性等优势。函数组件的出现使得 `React` 开发更加高效、灵活和可维护，成为现代 `React` 开发的主流方式。
 
 </details>
-
-### 🔴 其他
-
-见网络篇：https://github.com/cgfeel/frontend-interview-questions/blob/main/network.md#-http2-%E7%9B%B8%E5%AF%B9%E4%BA%8E-http11-%E6%9B%B4%E6%96%B0%E4%BA%86%E4%BB%80%E4%B9%88
