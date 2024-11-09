@@ -533,3 +533,61 @@ const MyComponent: FC = () => {
 通过结合这些方法，`React` 应用可以在用户体验和数据更新上获得显著的性能提升。
 
 </details>
+
+### 🔴 在生产环境中，怎样启用 `React` 的生产模式？
+
+来自：`问题衍伸`
+
+<details>
+
+<summary>要在生产环境中启用 React 的生产模式，可以通过以下几种常见方法：</summary>
+
+**方法一：使用 `Create React App` 创建项目时的默认设置**
+
+如果项目是使用 `Create React App` 创建的，那么在构建项目用于生产环境时，它会自动启用 `React` 的生产模式。只需运行以下任意命令来创建生产环境的构建：
+
+```bash
+# npm
+npm run build
+
+# yarn
+yarn build
+```
+
+`Create React App` 会对代码进行优化处理，包括启用 `React` 的生产模式，压缩代码、去除开发环境相关的调试代码等，生成的构建版本可直接部署到生产服务器上。
+
+**方法二：手动设置环境变量（对于非 `Create React App` 项目）**
+
+1. 对于使用 `Webpack` 进行打包的项目：
+
+在项目的 `Webpack` 配置文件（通常是 `webpack.config.js`）中，需要设置 `DefinePlugin` 来定义环境变量。
+
+```js
+const webpack = require("webpack");
+
+module.exports = {
+  //...其他Webpack配置项
+
+  plugins: [
+    new webpack.DefinePlugin({
+      "process.env.NODE_ENV": JSON.stringify("production"),
+    }),
+  ],
+};
+```
+
+这里通过 `DefinePlugin` 将 `process.env.NODE_ENV` 设置为 `production`，这样 `React` 就会识别到处于生产环境，从而启用生产模式。
+
+2. 对于使用其他打包工具或自定义构建流程的项目：
+
+同样需要确保在运行时将 `process.env.NODE_ENV` 环境变量设置为 `production`。例如，在运行项目的脚本命令中，可以这样设置（以 `Linux/macOS` 系统为例）：
+
+```bash
+NODE_ENV=production node index.js
+```
+
+这里假设 `index.js` 是项目的入口文件，通过在运行命令前设置 `NODE_ENV` 环境变量为 `production`，`React` 会进入生产模式。
+
+当 `React` 处于生产模式时，它会进行一系列优化，比如对代码进行更严格的错误检查（只抛出关键错误以避免影响用户体验）、优化渲染性能等，有助于提升应用在生产环境中的运行效果。
+
+</details>
