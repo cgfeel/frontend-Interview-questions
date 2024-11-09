@@ -97,3 +97,25 @@ https://github.com/cgfeel/frontend-interview-questions/blob/main/document/open.m
 4. `localStorage` 如何跨域获取？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/js.md#-localstorage-%E5%A6%82%E4%BD%95%E8%B7%A8%E5%9F%9F%E8%8E%B7%E5%8F%96)]
 5. 如何写一个 `splice` 方法并覆盖数组的原方法？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/js.md#-%E5%A6%82%E4%BD%95%E5%86%99%E4%B8%80%E4%B8%AA-splice-%E6%96%B9%E6%B3%95%E5%B9%B6%E8%A6%86%E7%9B%96%E6%95%B0%E7%BB%84%E7%9A%84%E5%8E%9F%E6%96%B9%E6%B3%95)]
 6. `forEach` 循环和 `for` 循环哪个性能高？`forEach` 循环可以中断吗？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/js.md#-foreach-%E5%BE%AA%E7%8E%AF%E5%92%8C-for-%E5%BE%AA%E7%8E%AF%E5%93%AA%E4%B8%AA%E6%80%A7%E8%83%BD%E9%AB%98foreach-%E5%BE%AA%E7%8E%AF%E5%8F%AF%E4%BB%A5%E4%B8%AD%E6%96%AD%E5%90%97)]
+
+## 写在最后：为什么要背题
+
+很多人会有个疑问，为什么要背题？难道不是应该去理解吗，去实践得出来吗？
+
+首先对此我不排斥背题，其次回想一下是否也有过如下经历：
+
+1. 面试的问题似乎都理解，但不知道从什么地方说起或无法组织话术？
+2. 能够说出一两个关键答案，但不够全面也不够深入？
+3. 面试官到底在问什么？
+4. 我似乎在哪里看到过，很久没做或看的太少淡忘了？
+5. 这个我做过但说不出来，或者你让我写没有参考也不知道从什么地方下手？
+6. 回答的七七八八，似乎也都说了，面试结束后复盘发现漏了关键点？
+
+除此之外：
+
+- 大前端是一个很广的范围，你可能涉猎的也非常广、非常深，但总归有知识盲区
+
+通过背题也是学习进步的一种方式：
+
+- 回顾和复盘能够增进记忆，增加对知识的深度和广度
+- 能从容应对面试问题，以及弥补知识空缺遗留的盲区
