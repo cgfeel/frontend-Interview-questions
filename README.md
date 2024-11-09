@@ -118,4 +118,4 @@ https://github.com/cgfeel/frontend-interview-questions/blob/main/document/open.m
 通过背题也是学习进步的一种方式：
 
 - 回顾和复盘能够增进记忆，增加对知识的深度和广度
-- 能从容应对面试问题，以及弥补知识空缺遗留的盲区
+- 能从容应对面试问题，以及弥补知识空缺遗漏的盲区
