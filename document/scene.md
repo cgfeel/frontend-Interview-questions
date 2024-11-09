@@ -65,7 +65,7 @@
 
 **1. 代码优化**
 
-- **代码分离与按需加载：**使用代码分离（`Code Splitting`）将代码按需加载，以减小首屏的 `JavaScript` 体积。`Webpack` 等打包工具提供了动态导入（`import`）功能来实现按需加载。
+- **代码分离与按需加载**：使用代码分离（`Code Splitting`）将代码按需加载，以减小首屏的 `JavaScript` 体积。`Webpack` 等打包工具提供了动态导入（`import`）功能来实现按需加载。
 - **减少 `JavaScript` 执行时间：**减少过多的 `JavaScript` 运算和 `DOM` 操作，将计算密集型操作移到 `Web Worker` 或服务器端。
 
 **2. 资源优化**
