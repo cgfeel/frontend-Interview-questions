@@ -98,8 +98,8 @@ https://github.com/cgfeel/frontend-interview-questions/blob/main/document/open.m
 5. 如何写一个 `splice` 方法并覆盖数组的原方法？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/js.md#-%E5%A6%82%E4%BD%95%E5%86%99%E4%B8%80%E4%B8%AA-splice-%E6%96%B9%E6%B3%95%E5%B9%B6%E8%A6%86%E7%9B%96%E6%95%B0%E7%BB%84%E7%9A%84%E5%8E%9F%E6%96%B9%E6%B3%95)]
 6. `forEach` 循环和 `for` 循环哪个性能高？`forEach` 循环可以中断吗？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/js.md#-foreach-%E5%BE%AA%E7%8E%AF%E5%92%8C-for-%E5%BE%AA%E7%8E%AF%E5%93%AA%E4%B8%AA%E6%80%A7%E8%83%BD%E9%AB%98foreach-%E5%BE%AA%E7%8E%AF%E5%8F%AF%E4%BB%A5%E4%B8%AD%E6%96%AD%E5%90%97)]
 7. 谈谈前端性能优化？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/scene.md#-%E8%B0%88%E8%B0%88%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96)]
-8. 做的最好和最有成就的项目是哪个？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/scene.md#-%E8%B0%88%E8%B0%88%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96)]
-9. 性格优缺点？爱好？前同事对你的评价？未来的规划？平时怎么学习？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/scene.md#-%E8%B0%88%E8%B0%88%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96)]
+8. 做的最好和最有成就的项目是哪个？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/open.md#-%E5%81%9A%E7%9A%84%E6%9C%80%E5%A5%BD%E5%92%8C%E6%9C%80%E6%9C%89%E6%88%90%E5%B0%B1%E7%9A%84%E9%A1%B9%E7%9B%AE%E6%98%AF%E5%93%AA%E4%B8%AA)]
+9. 性格优缺点？爱好？前同事对你的评价？未来的规划？平时怎么学习？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/open.md#-%E6%80%A7%E6%A0%BC%E4%BC%98%E7%BC%BA%E7%82%B9%E7%88%B1%E5%A5%BD%E5%89%8D%E5%90%8C%E4%BA%8B%E5%AF%B9%E4%BD%A0%E7%9A%84%E8%AF%84%E4%BB%B7%E6%9C%AA%E6%9D%A5%E7%9A%84%E8%A7%84%E5%88%92%E5%B9%B3%E6%97%B6%E6%80%8E%E4%B9%88%E5%AD%A6%E4%B9%A0)]
 
 ## 写在最后：为什么要背题
 
