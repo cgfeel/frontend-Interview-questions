@@ -114,6 +114,7 @@ https://github.com/cgfeel/frontend-interview-questions/blob/main/document/open.m
 除此之外：
 
 - 大前端是一个很广的范围，你可能涉猎的也非常广、非常深，但总归有知识盲区
+- 每个领域都有特定的关注点，不一定每个都要垂直深入，通过背题也是一种高效理解知识的方式
 
 通过背题也是学习进步的一种方式：
 
