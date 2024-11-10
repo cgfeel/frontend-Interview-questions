@@ -101,6 +101,12 @@ https://github.com/cgfeel/frontend-interview-questions/blob/main/document/open.m
 8. 做的最好和最有成就的项目是哪个？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/open.md#-%E5%81%9A%E7%9A%84%E6%9C%80%E5%A5%BD%E5%92%8C%E6%9C%80%E6%9C%89%E6%88%90%E5%B0%B1%E7%9A%84%E9%A1%B9%E7%9B%AE%E6%98%AF%E5%93%AA%E4%B8%AA)]
 9. 性格优缺点？爱好？前同事对你的评价？未来的规划？平时怎么学习？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/open.md#-%E6%80%A7%E6%A0%BC%E4%BC%98%E7%BC%BA%E7%82%B9%E7%88%B1%E5%A5%BD%E5%89%8D%E5%90%8C%E4%BA%8B%E5%AF%B9%E4%BD%A0%E7%9A%84%E8%AF%84%E4%BB%B7%E6%9C%AA%E6%9D%A5%E7%9A%84%E8%A7%84%E5%88%92%E5%B9%B3%E6%97%B6%E6%80%8E%E4%B9%88%E5%AD%A6%E4%B9%A0)]
 
+### Gate.io
+
+**1 面**
+
+- `http/2` 相对于 `http/1.1` 更新了什么？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/network.md#-http2-%E7%9B%B8%E5%AF%B9%E4%BA%8E-http11-%E6%9B%B4%E6%96%B0%E4%BA%86%E4%BB%80%E4%B9%88)]
+
 ## 写在最后：为什么要背题
 
 很多人会有个疑问，为什么要背题？难道不是应该去理解吗，去实践得出来吗？
