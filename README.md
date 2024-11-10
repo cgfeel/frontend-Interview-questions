@@ -105,7 +105,7 @@ https://github.com/cgfeel/frontend-interview-questions/blob/main/document/open.m
 
 **1 面**
 
-- 浏览器中的 `options` 请求说一下 [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/network.md#-%E8%AF%B4%E4%B8%80%E4%B8%8B%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84-cors-%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5)]
+- 浏览器中的 `options` 请求说一下？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/network.md#-%E8%AF%B4%E4%B8%80%E4%B8%8B%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84-cors-%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5)]
 - `http/2` 相对于 `http/1.1` 更新了什么？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/network.md#-http2-%E7%9B%B8%E5%AF%B9%E4%BA%8E-http11-%E6%9B%B4%E6%96%B0%E4%BA%86%E4%BB%80%E4%B9%88)]
 - 请聊一下 `http3`？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/network.md#-%E8%AF%B7%E8%81%8A%E4%B8%80%E4%B8%8B-http3)]
 

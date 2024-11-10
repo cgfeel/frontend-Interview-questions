@@ -231,7 +231,7 @@ Content-Length: 1234
 
 来自：`Gate.io`、`渡一`
 
-> `Gate.io` 中的原问题是：浏览器中的 `options` 请求说一下
+> `Gate.io` 中的原问题是：浏览器中的 `options` 请求说一下？
 
 <details>
 
