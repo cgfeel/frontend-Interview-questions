@@ -277,13 +277,18 @@ Content-Length: 1234
 
 `CORS` 将请求分为 2 类：简单请求和预检请求
 
-简单请求：
+简单请求是指满足特定条件的请求，浏览器可以直接发送它们，而不需要进行预检。要被认为是简单请求，必须满足以下条件：
 
-1. 请求方法为：`GET`、`POST`、`HEAD`，见：`W3C` [[查看](https://fetch.spec.whatwg.org/#cors-safelisted-method)]
-2. 头部字段符合 `CORS` 安全规范，见：`W3C` [[查看](https://fetch.spec.whatwg.org/#cors-safelisted-request-header)]
+1. **请求方法为**：`GET`、`POST`、`HEAD`
+2. **请求头：** 头部字段符合 `CORS` 安全规范，见：`W3C` [[查看](https://fetch.spec.whatwg.org/#cors-safelisted-request-header)]
+3. 无自定义头部或其他非标准的 `HTTP` 头部字段。
 
-`CORS` 安全规范简短概述：
+`CORS` 安全规范：`HTTP` 请求头信息中，包含以下几种自定义首部且有相应限制：
 
-- 只要不去改动
+- `header` 头部请求的值不能超过 128 字节
+- 只能包含标准的头部字段：`Accept`、`Accept-Language`、`Content-Language`、`Content-Type` 等
+- `Content-Type` 首部的值仅限于：`application/x-www-form-urlencoded`、`multipart/form-data`、`text/plain`。
+
+> 因此 `jwt` 这种需要通过 `authorization` 发送 `token` 的额情况有可能不符合简单请求，下面会说明如何优化
 
 </details>
