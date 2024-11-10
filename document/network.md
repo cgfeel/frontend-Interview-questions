@@ -287,7 +287,7 @@ Content-Length: 1234
 
 > 以上条件需要同时满足
 
-`CORS` 安全规范：`HTTP` 请求头信息中，包含以下几种自定义首部且有相应限制：
+`CORS` 安全规范：`HTTP` 请求头信息中，包含以下几种首部且有相应限制
 
 - `header` 头部请求的值不能超过 128 字节
 - 只能包含标准的头部字段：`Accept`、`Accept-Language`、`Content-Language`、`Content-Type` 等
