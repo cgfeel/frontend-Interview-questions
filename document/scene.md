@@ -154,7 +154,7 @@ function _getProcessedContent(content) {
 
 **3. 安全的 `DOM` 操作：**
 
-- **避免使用危险的 `DOM API`：**：如 `document.write` 容易导致 `DOM` - `based XSS` 攻击。
+- **避免使用危险的 `DOM API`**：如 `document.write` 容易导致 `DOM` - `based XSS` 攻击。
 - **正确处理 `DOM` 更新**：在更新 `DOM` 时，要注意使用的数据来源。例如，在使用 `innerHTML` 时，要对插入的内容进行 `HTML` 编码，防止恶意脚本注入。对于通过 `addEventListener` 等方式添加的事件处理函数，也要注意防止恶意脚本通过事件参数等途径注入。
 
 **4. 借助安全策略和现有的库：**
