@@ -327,7 +327,7 @@ Content-Length: 1234
 
 浏览器根据响应的头部判定响应结果：
 
-- 从响应头获取 `Access-Control-Allow-Origin`，值为请求时 `Origin` 请求源一致
+- 从响应头获取 `Access-Control-Allow-Origin`，值必须和请求时 `Origin` 请求源一致
 - 或者响应的值也可以是一个 `*`，表示对所有的源都通过
 
 当跨域请求不满足简单请求的定义条件时，就会触发预检请求（`OPTIONS` 请求）：
