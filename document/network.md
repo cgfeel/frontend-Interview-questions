@@ -296,7 +296,7 @@ Content-Length: 1234
 
 `CORS` 将请求分为 2 类：简单请求和预检请求
 
-简单请求是指满足特定条件的请求，必须满足以下条件：
+简单请求必须满足以下条件：
 
 1. **请求方法为**：`GET`、`POST`、`HEAD`
 2. **请求头**：头部字段符合 `CORS` 安全规范，见：`W3C` [[查看](https://fetch.spec.whatwg.org/#cors-safelisted-request-header)]
