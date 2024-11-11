@@ -302,7 +302,7 @@ Content-Length: 1234
 2. **请求头**：头部字段符合 `CORS` 安全规范，见：`W3C` [[查看](https://fetch.spec.whatwg.org/#cors-safelisted-request-header)]
 3. 无自定义头部或其他非标准的 `HTTP` 头部字段。
 
-> 以上条件需要同时满足
+> 以上 3 个条件需要同时满足
 
 `CORS` 安全规范：`HTTP` 请求头信息中，包含以下几种首部且有相应限制
 
