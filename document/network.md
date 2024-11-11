@@ -357,7 +357,7 @@ Content-Length: 1234
 - `Access-Control-Allow-Headers`：告知浏览器允许的自定义首部
 - `Access-Control-Max-Age`：提供一个数字，时间单位秒，告知浏览器指定时间内，不需要重复发送预检请求
 
-**`options` 请求优化**
+#### `options` 请求优化
 
 试想一下如果每一次跨域请求，都需要向服务器发送预检请求，会造成以下问题：
 
