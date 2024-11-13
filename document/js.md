@@ -426,7 +426,7 @@ const anotherSayHello = person.sayHello;
 anotherSayHello(); // this 指向全局对象，输出 "Hello, I'm undefined"（因为全局对象中没有 name 属性）
 ```
 
-> 上面这段代码来自豆包，存在一个错误，具体是什么？又为什么我在底部说明
+> 上面这段代码来自豆包，存在一个错误，具体是什么？我在底部说明。
 
 箭头函数：本身没有自己的 `this`，其 `this` 是继承自外层作用域的 `this`。箭头函数在定义时就确定了 `this` 的指向，并且之后不会再改变，无论它在何处被调用。例如：
 
