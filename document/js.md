@@ -518,7 +518,7 @@ const person = new Person("张三", 20); // 报错，箭头函数不能作为构
 从全局对象上下文中获取 `name` 时不一定时 `undefinde`，分两种情况：
 
 - 浏览器环境全局对象时 `window`，存在 `name` 属性，为空字符
-- `Node.js` 全局对象没有 `name` 属性
+- `Node.js` 全局对象没有 `name` 属性，为 `undefinde`
 
 > 知识点来自 `渡一`
 
