@@ -587,11 +587,11 @@ function debounce<T extends Function, D extends any = any>(
 
 上面注解行中的 `this` 也可以通过普通方法来实现，但这就要额外声明一个引用对象，例如：
 
-```js
-function action() {
+```typescript
+function action(fn: Function) {
   const that = this;
   return function () {
-    console.log(that);
+    fn.apply(that, arguments);
   };
 }
 ```
