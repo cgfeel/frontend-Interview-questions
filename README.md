@@ -105,6 +105,7 @@ https://github.com/cgfeel/frontend-interview-questions/blob/main/document/open.m
 
 **1 面**
 
+- 说一下箭头函数和普通函数的区别？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/js.md#-%E8%AF%B4%E4%B8%80%E4%B8%8B%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E5%92%8C%E6%99%AE%E9%80%9A%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB)]
 - `React` 为什么用 `function` 组件代替 `class` 组件？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/react.md#-react-%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8-function-%E7%BB%84%E4%BB%B6%E4%BB%A3%E6%9B%BF-class-%E7%BB%84%E4%BB%B6)]
 - 前端如何优化 `FCP`？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/scene.md#-%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E5%89%8D%E7%AB%AF-fcp)]
 - 说下 XSS 攻击，以及前端如何预防？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/scene.md#-%E8%AF%B4%E4%B8%8B-xss-%E6%94%BB%E5%87%BB%E4%BB%A5%E5%8F%8A%E5%89%8D%E7%AB%AF%E5%A6%82%E4%BD%95%E9%A2%84%E9%98%B2)]
