@@ -176,3 +176,128 @@ function _getProcessedContent(content) {
 - **安全的组件通信和数据传递**：当父组件将数据传递给子组件作为 `props` 时，要保证数据是经过验证和安全处理的。同样，在使用 `context` 等高级特性进行数据共享时，也要注意数据的来源和安全性，防止恶意数据在组件之间传播并导致 `XSS` 攻击。
 
 </details>
+
+### 🔴 如何优化前端 `FCP`？
+
+来自：`gate.io`
+
+<details>
+
+<summary>以下是 First Contentful Paint，首次内容绘制优化方法：</summary>
+
+#### 一、优化资源加载
+
+**1. 代码拆分（`Code Splitting`）**
+
+将大型的 `JavaScript` 代码库拆分成多个较小的模块，按需加载。这样浏览器就不用一次性下载和解析大量代码，而是根据用户的交互或者页面的初始呈现需求逐步获取所需代码，能有效减少首次页面加载时的资源量，加快 `FCP` 的时间。
+
+示例：
+
+在使用 `webpack` 等构建工具时，可以利用其动态导入（`import()`）功能实现代码拆分。比如一个电商网站，有商品列表展示模块、购物车模块、用户登录模块等，可以把这些模块对应的代码分别拆分出来，当用户访问商品列表页面时，先只加载商品列表展示相关的代码，等用户点击进入购物车页面时再加载购物车模块代码。
+
+**2. 优化 `CSS` 和 `JavaScript` 加载顺序**
+
+通常将关键的 `CSS` 样式表放在页面头部加载，这样浏览器可以尽早开始渲染页面样式，避免出现页面无样式的 “白屏” 阶段，进而加快首次内容绘制。对于 `JavaScript`，除非是页面初始化必须依赖的脚本，否则尽量放在页面底部加载，防止 `JavaScript` 解析阻塞页面渲染进程，影响 `FCP`。
+
+在 HTML 文件中，像下面这样安排资源加载顺序：
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- 关键 CSS 优先加载 -->
+  </head>
+  <body>
+    <!-- 页面内容主体 -->
+    <script src="main.js"></script>
+    <!-- 非关键 JavaScript 放底部 -->
+  </body>
+</html>
+```
+
+**3. 懒加载（`Lazy Loading`）**
+
+针对图片、视频等多媒体资源以及页面下方的一些非关键内容采用懒加载机制。即这些资源在页面初始加载时不会被下载，只有当它们进入浏览器的可视区域时才会按需加载，从而减少首次页面加载时的资源请求数量，提升 `FCP` 速度。
+
+对于图片，可以使用 `HTML5` 的 `data-*` 属性结合 `JavaScript` 来实现懒加载。例如：
+
+```html
+<img data-src="large-image.jpg" alt="示例图片" class="lazyload" />
+```
+
+然后通过 `JavaScript` 监听页面滚动等事件，当图片元素进入可视区域时，将 `data-src` 属性的值赋给 `src` 属性，触发图片的加载：
+
+```js
+// 以下代码只做演示，没有考虑节流，生成环境请勿直接使用
+const lazyImages = document.querySelectorAll(".lazyload");
+const lazyLoad = function () {
+  lazyImages.forEach((image) => {
+    if (
+      image.getBoundingClientRect().top < window.innerHeight &&
+      image.getBoundingClientRect().bottom > 0
+    ) {
+      image.src = image.dataset.src;
+      image.classList.remove("lazyload");
+    }
+  });
+};
+window.addEventListener("scroll", lazyLoad);
+window.addEventListener("load", lazyLoad);
+```
+
+#### 二、优化网络请求
+
+**1. 压缩资源**
+
+对 `CSS`、`JavaScript`、`HTML` 等文件进行压缩，去除多余的空格、注释等冗余信息，减小文件体积，加快网络传输速度，使浏览器能更快获取资源并进行页面渲染，有助于优化 `FCP`。
+
+在构建项目时，使用工具如 `UglifyJS` 对 `JavaScript` 文件进行压缩，使用 `cssnano` 对 `CSS` 文件进行压缩，同时 `HTML` 文件也可以通过相关构建插件来压缩，例如在基于 `Node.js` 的项目中，通过配置 `html-webpack-plugin` 可以在打包时自动压缩 `HTML` 文件。
+
+**2. 使用 `CDN`（`Content Delivery Network`）**
+
+将静态资源（如图片、脚本、样式表等）分发到多个地理位置的服务器节点上，当用户访问页面时，浏览器可以从距离用户最近的服务器获取资源，大大缩短了资源的传输时间，能有效加快页面首次内容绘制的速度。
+
+对于一些常用的前端库，像 `jQuery`，可以使用其官方提供的 `CDN` 链接来加载：
+
+```js
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+```
+
+同时，企业自己的网站也可以部署 CDN 来存放自己的静态资源，比如图片、样式文件等。
+
+**3. 减少 `HTTP` 请求数量**
+
+每一个 `HTTP` 请求都会有一定的开销，包括建立连接、发送请求头、等待响应等时间成本。通过合并 `CSS` 和 `JavaScript` 文件、使用雪碧图（`CSS Sprite`）等方式减少请求次数，从而加快页面加载速度，改善 `FCP`。
+
+如果有多个小的 `CSS` 文件，可以使用构建工具将它们合并成一个大的 `CSS` 文件；对于页面中用到的多个小图标，可以通过工具将它们整合到一张雪碧图中，然后利用 `CSS` 的 `background-position` 属性来定位显示不同的图标，减少图标对应的单独 `HTTP` 请求。
+
+#### 三、优化页面结构与渲染
+
+**1. 精简 `HTML` 结构**
+
+保持 `HTML` 页面结构简洁，去除不必要的标签嵌套和多余的元素，让浏览器能更快地解析和渲染页面内容，有助于缩短首次内容绘制时间。
+
+避免像下面这样过度嵌套的 HTML 结构：
+
+```html
+<div>
+  <div>
+    <p><span>这是一段文本</span></p>
+  </div>
+</div>
+```
+
+可以简化为：
+
+```html
+<p>这是一段文本</p>
+```
+
+**2. 避免重排（`Reflow`）和重绘（`Repaint`）**
+
+当页面元素的布局（尺寸、位置等）或样式（颜色、背景等）发生改变时，浏览器会进行重新布局（重排）和重新绘制（重绘）操作，这些操作会消耗一定的性能，影响 `FCP`。尽量减少不必要的元素样式和布局的频繁变动，通过改变类名应用预定义的样式变化、使用 `transform` 和 `opacity` 等属性来实现动画效果等方式来降低重排和重绘的频率。
+
+如果要实现一个元素的隐藏动画，不要使用 display: none（会引起重排和重绘），而是使用 opacity: 0 结合 visibility: hidden 以及 transition 属性来实现平滑的隐藏效果，减少对页面渲染性能的影响。
+
+</details>
