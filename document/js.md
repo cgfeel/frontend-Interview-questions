@@ -370,3 +370,232 @@ arr1.forEach((item, index, array) => {
 完整实例：https://codepen.io/levi0001/pen/MWNpKJV
 
 </details>
+
+### 🔴 说一下箭头函数和普通函数的区别？
+
+来自：`Gate.io`
+
+<details>
+
+<summary>箭头函数和普通函数在多个方面存在区别，以下是详细介绍：</summary>
+
+**语法形式**
+
+普通函数：有着完整且相对规范的语法结构，由 `function` 关键字开头，后面跟着函数名（可省略，若省略则为匿名函数）、参数列表以及函数体。例如：
+
+```js
+// 有函数名的普通函数
+function add(num1, num2) {
+    return num1 + num2;
+}
+
+// 匿名普通函数，常作为回调函数使用
+function (num) {
+    console.log(num);
+}
+```
+
+箭头函数：使用箭头（`=>`）来定义函数，语法更加简洁。箭头函数如果只有一个参数，参数外面的圆括号可以省略；如果函数体只有一条语句，且这条语句是返回值语句，花括号和 return 关键字都可以省略。例如：
+
+```js
+// 只有一个参数，省略参数括号
+const square = (num) => num * num;
+
+// 函数体有多条语句，需要花括号和 return
+const sum = (num1, num2) => {
+  const result = num1 + num2;
+  return result;
+};
+```
+
+**`this` 指向**
+
+普通函数：`this` 的指向在函数被调用时才确定，它取决于函数的调用方式。在全局环境下调用普通函数，`this` 指向全局对象（在浏览器环境中是 `window`，在 `Node.js` 环境中是 `global`）；如果作为对象的方法调用，`this` 指向该对象；要是通过 `call`、`apply`、`bind` 等方法来调用，`this` 会被显式地设置为传入的第一个参数所指定的对象。例如：
+
+```js
+const person = {
+  name: "张三",
+  sayHello: function () {
+    console.log(`Hello, I'm ${this.name}`);
+  },
+};
+
+person.sayHello(); // this 指向 person 对象，输出 "Hello, I'm 张三"
+
+const anotherSayHello = person.sayHello;
+anotherSayHello(); // this 指向全局对象，输出 "Hello, I'm undefined"（因为全局对象中没有 name 属性）
+```
+
+> 上面这段代码来自豆包，存在一个错误，具体是什么？又为什么我在底部说明
+
+箭头函数：本身没有自己的 `this`，其 `this` 是继承自外层作用域的 `this`。箭头函数在定义时就确定了 `this` 的指向，并且之后不会再改变，无论它在何处被调用。例如：
+
+```js
+const person = {
+  name: "张三",
+  sayHello: () => {
+    console.log(`Hello, I'm ${this.name}`);
+  },
+};
+
+person.sayHello(); // this 指向全局对象，输出 "Hello, I'm undefined"（假设全局对象没有 name 属性）
+
+const outerThis = { name: "李四" };
+const func = function () {
+  const innerFunc = () => {
+    console.log(`Hello, I'm ${this.name}`);
+  };
+  innerFunc();
+};
+func.call(outerThis); // this 指向 outerThis，输出 "Hello, I'm 李四"
+```
+
+> 这段代码和上面一样，犯了相同的 1 个错误
+
+**`arguments` 对象**
+
+普通函数：在函数内部，有一个内置的 `arguments` 对象，它是一个类数组对象，包含了函数调用时传入的所有实际参数，无论函数定义时声明了几个参数，都可以通过 `arguments` 来获取所有参数信息。例如：
+
+```js
+function sum() {
+  let result = 0;
+  for (let i = 0; i < arguments.length; i++) {
+    result += arguments[i];
+  }
+  return result;
+}
+
+console.log(sum(1, 2, 3)); // 可以获取到传入的 1、2、3 这三个参数，输出 6
+```
+
+箭头函数：不存在自己的 `arguments` 对象，如果需要获取参数，可以通过定义的形参或者使用剩余参数（`...`语法）来实现，但不能像普通函数那样直接依赖 `arguments` 对象。例如：
+
+```js
+const sum = (...nums) => {
+  let result = 0;
+  for (let num of nums) {
+    result += num;
+  }
+  return result;
+};
+
+console.log(sum(1, 2, 3)); // 通过剩余参数获取传入的参数，输出 6
+```
+
+> `...` 的专业叫法应该是：扩展运算符
+
+**构造函数使用**
+
+普通函数：可以使用 `function` 关键字定义的普通函数作为构造函数，通过 `new` 关键字来创建对象实例，在函数内部可以使用 `this` 来初始化新对象的属性等，并且会自动执行一些构造函数相关的初始化操作（如创建对象的原型链等）。例如：
+
+```js
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+const person = new Person("张三", 20);
+console.log(person.name); // 输出 "张三"
+```
+
+箭头函数：不能作为构造函数使用，因为它没有自己的 `this`，也不存在构建对象实例相关的内部机制，如果尝试使用 `new` 来调用箭头函数，会报错。例如：
+
+```js
+const Person = (name, age) => {
+  this.name = name;
+  this.age = age;
+};
+
+const person = new Person("张三", 20); // 报错，箭头函数不能作为构造函数
+```
+
+---
+
+以上答案来自豆包，以下内容为我修正：
+
+**1 个错误：从全局对象上下文中获取 `name` 时不一定时 `undefinde`**
+
+分两种情况：
+
+- 浏览器环境全局对象时 `window`，存在 `name` 属性，为空字符
+- `Node.js` 全局对象没有 `name` 属性
+
+> 知识点来自 `渡一`
+
+**2 个遗漏：**
+
+箭头函数没有原型链 `protoType`：
+
+- 这样就意味着，箭头函数内部找不到的对象，会直接从作用域中获取上下文，而普通函数则会通过原型链一层一层往上找
+- 普通函数可以将方法通过原型链绑定在对象上，箭头函数则不可以
+
+不能通过 `call`、`apply` 修正箭头函数的上下文：
+
+- 虽然都支持调用 `call`、`apply`，但箭头函数的 `this` 永远由上下文决定
+- 而普通函数可以通过此类方法修正上下文中 `this` 对象
+
+有人说箭头函数中的 `this` 是固定的，这样的说法也是错误的，例如：
+
+```js
+const data = { name: "levi" };
+function action() {
+  (() => {
+    console.log(this.name);
+  })();
+}
+
+action(); // ''
+action.call(data); // levi
+```
+
+**适用场景**
+
+普通函数：
+
+- 需要使用构造函数创建对象，或继承对象等 `OOP` 场景时
+- 需要通过 `call`、`apply` 绑定上下文的情况
+- 需要使用原型链的情况
+- 事件监听方法，有可能需要通过 `this` 获取 `target`
+
+箭头函数：
+
+- 函数式 `React` 组件，如果是页面组件仍旧推荐普通函数，用于区分组件和 `page`
+- 在一个复合型型函数中动态获取上下文
+- 纯粹的为了返回计算结果，如图形运算等，能够保持直观、简洁
+- 循环遍历，如：`map`、`filter`、`reduce`
+
+用防抖函数演示：复合型型函数中动态获取上下文
+
+```typescript
+function debounce<T extends Function, D extends any = any>(
+  func: T,
+  delay: number = 500
+) {
+  let timer = 0;
+  return function (this: ThisParameterType<T>, ...args: D[]) {
+    if (timer !== 0) {
+      clearTimeout(timer);
+    }
+
+    timer = setTimeout(() => {
+      func.apply(this, args); // 这里的 `this` 会根据监听事件的对象而改变
+      timer = 0;
+    }, delay);
+  };
+}
+```
+
+上面注解行中的 `this` 也可以通过普通方法来实现，但这就要额外声明一个代理对象，例如：
+
+```js
+function action() {
+  const that = this;
+  return function () {
+    console.log(that);
+  };
+}
+```
+
+这就是箭头函数还没有时的做法，会看到很多误导性的 `that`、`this`，无法分别具体指向
+
+</details>
