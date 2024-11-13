@@ -177,7 +177,7 @@ function _getProcessedContent(content) {
 
 </details>
 
-### 🔴 如何优化前端 `FCP`？
+### 🔴 前端如何优化 `FCP`？
 
 来自：`gate.io`
 
