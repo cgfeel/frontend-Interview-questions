@@ -199,7 +199,7 @@ module.exports = {
 ```json
 {
   "scripts": {
-    "build": "webpack - - mode=production"
+    "build": "webpack --mode=production"
   }
 }
 ```
