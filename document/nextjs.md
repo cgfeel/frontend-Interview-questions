@@ -3,3 +3,11 @@
 ### 🔴 `NextJS` 的 `middleware` 有什么用？
 
 来源：`Gate.io`
+
+<details>
+
+<summary>答案：</summary>
+
+test
+
+</details>
