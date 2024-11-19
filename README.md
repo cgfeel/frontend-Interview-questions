@@ -117,6 +117,34 @@ https://github.com/cgfeel/frontend-interview-questions/blob/main/document/networ
 - `http/2` 相对于 `http/1.1` 更新了什么？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/network.md#-http2-%E7%9B%B8%E5%AF%B9%E4%BA%8E-http11-%E6%9B%B4%E6%96%B0%E4%BA%86%E4%BB%80%E4%B9%88)]
 - 请聊一下 `http3`？ [[查看](https://github.com/cgfeel/frontend-interview-questions/blob/main/document/network.md#-%E8%AF%B7%E8%81%8A%E4%B8%80%E4%B8%8B-http3)]
 
+### 字节
+
+来自外包 `hr` 整理提供
+
+**笔试题**
+
+包含如下，整理在 `codepen` [[查看](https://codepen.io/collection/EPjerE)]
+
+- 手写实现 `EventBus`，观察者模式
+- `LocalStorage` 实现 `60s` 后自动删除（我通过 `Proxy` 实现）
+- 手撕防抖、节流函数
+- 根据一个对象替换模板中的模板变量
+- 实现数组翻转
+- `EventLoop` 打印顺序，有 3 道
+- 给定一个字符串如 `abc` 打印出所有的可能出现的顺序
+- `var` 变量在 `for` 循环中的问题
+- 手写 `hooks` 实现一个 `input` 组件
+- 用 `react` 实现一个倒计时器组件，使用用户传入的格式比如 `hh/mm/ss` 进行显示
+- 写一个计时器实现开始暂停记录清除
+- `React 16` 合成事件和原生事件冒泡顺序
+- 判断是不是回文数字
+- 作用域和原型链输出、修改作用域后的输出
+- 数组去重
+- 实现垂直居中
+- 实现一个 `Promise.all`
+- 手写 `Promise` 请求队列
+- 算法题：将数组按照层级变成对象
+
 ## 写在最后：为什么要背题
 
 很多人会有个疑问，为什么要背题？难道不是应该去理解吗，去实践得出来吗？
