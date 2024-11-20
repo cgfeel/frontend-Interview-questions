@@ -628,9 +628,95 @@ setState((count) => {
 });
 
 // effect subscript recommended
+setState(count + 1);
 useEffect(() => {
   console.log(count);
 }, [count]);
+```
+
+**2. 不可变数据原则问题**
+
+`React` 推荐遵循不可变数据原则来更新状态。如果直接修改状态对象或数组（例如，直接修改 `this.state.obj.key = 'newValue'` 或者 `this.state.array.push('newItem')`），`React` 可能无法正确检测到状态的变化，从而导致组件不能正确地重新渲染。
+
+解决方案：对于对象，可以使用 `Object.assign` 或者扩展运算符（`...`）来创建一个新的对象进行更新。例如，要更新一个对象中的属性：
+
+```js
+this.setState((prevState) => ({
+  obj: Object.assign({}, prevState.obj, { key: "newValue" }),
+}));
+
+// 或者使用扩展运算符
+this.setState((prevState) => ({
+  obj: { ...prevState.obj, key: "newValue" },
+}));
+
+// 函数组件和上述基本一致，但拿到的是更新的状态本身
+setState((obj) => Object.assign({}, obj, { key: "newValue" }));
+setState((obj) => ({ ...obj, key: "newValue" }));
+```
+
+对于数组，可以使用数组的非变异方法（如 `concat`、`filter`、`map` 等）来更新。例如，要在数组中添加一个元素：
+
+```js
+this.setState((prevState) => ({
+  array: prevState.array.concat(["newItem"]),
+}));
+
+// 函数组件和上述基本一致，但拿到的是更新的状态本身
+setState((array) => array.concat(["newItem"]));
+setState((array) => [...array, "newItem"]);
+```
+
+**3. 更新顺序问题**
+
+当在一个组件中有多个 `setState` 调用，并且这些调用相互依赖时，更新顺序可能会导致意外的结果。例如，在一个组件的方法中：
+
+```js
+this.setState({ count: this.state.count + 1 });
+this.setState({ doubleCount: this.state.count * 2 });
+```
+
+这里期望 `doubleCount` 是更新后的 `count` 的两倍，但由于 `setState` 是异步的，实际上 `doubleCount` 可能是基于旧的 `count` 值计算的。
+
+解决方案：可以使用 `prevState` 参数来确保基于正确的前一个状态进行更新。例如：
+
+```js
+this.setState((prevState) => ({
+  count: prevState.count + 1,
+}));
+this.setState((prevState) => ({
+  doubleCount: prevState.count * 2,
+}));
+
+// 或者将多个相关的状态更新合并到一个setState调用中
+this.setState((prevState) => ({
+  count: prevState.count + 1,
+  doubleCount: (prevState.count + 1) * 2,
+}));
+
+// function component
+setCount((count) => count + 1);
+useEffect(() => {
+  setDoubleCount(count * 2);
+  return () => {
+    console.log(count); // subscript previously count
+  };
+}, [count]);
+```
+
+> 在函数组件中可以在 `useEffect` 的 `memorize` 函数中通过 `return` 的方法中订阅状态更新前的值
+
+**4. 性能问题（频繁更新）**
+
+如果在短时间内频繁地调用 `setState`，可能会导致组件过度渲染，降低应用程序的性能。例如，在一个 `onScroll` 或 `onMouseMove` 事件处理函数中频繁地更新状态，会触发大量不必要的重新渲染。
+
+解决方案：可以使用防抖（`Debounce`）或节流（`Throttle`）技术来限制 `setState` 的调用频率。另外，还可以使用 `shouldComponentUpdate`（在类组件中）或者 `React.memo`（在函数组件中）来优化组件的重新渲染，避免不必要的更新。例如，使用 `React.memo`：
+
+```jsx
+const MyComponent = React.memo((props) => {
+  // 组件内容
+  return <div>{props.value}</div>;
+});
 ```
 
 </details>
