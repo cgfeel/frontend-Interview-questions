@@ -604,4 +604,19 @@ NODE_ENV=production node index.js
 
 在 `React` 中，`setState` 方法在大多数情况下是异步更新的。这意味着当你调用 `setState` 后，状态不会立即更新，`React` 会将多个 `setState` 调用合并为一个更新操作来提高性能。例如，在以下代码中：
 
+```js
+this.setState({ count: this.state.count + 1 });
+console.log(this.state.count);
+```
+
+你可能期望 `console.log` 输出更新后的 `count` 值，但实际上它输出的可能是更新前的值，因为 `setState` 的更新操作还没有完成。
+
+解决方案：如果需要在状态更新后执行某些操作，可以传递一个回调函数给 `setState`。这个回调函数会在状态更新完成后被调用。例如：
+
+```js
+this.setState({ count: this.state.count + 1 }, () => {
+  console.log(this.state.count);
+});
+```
+
 </details>
