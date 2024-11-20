@@ -614,9 +614,23 @@ console.log(this.state.count);
 解决方案：如果需要在状态更新后执行某些操作，可以传递一个回调函数给 `setState`。这个回调函数会在状态更新完成后被调用。例如：
 
 ```js
+// class component
 this.setState({ count: this.state.count + 1 }, () => {
   console.log(this.state.count);
 });
+
+// function component (not recommended)
+setState((count) => {
+  const num = count + 1;
+  console.log(num);
+
+  return num;
+});
+
+// effect recommended
+useEffect(() => {
+  console.log(count);
+}, [count]);
 ```
 
 </details>
