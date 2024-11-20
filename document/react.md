@@ -591,3 +591,17 @@ NODE_ENV=production node index.js
 当 `React` 处于生产模式时，它会进行一系列优化，比如对代码进行更严格的错误检查（只抛出关键错误以避免影响用户体验）、优化渲染性能等，有助于提升应用在生产环境中的运行效果。
 
 </details>
+
+### 🔴 说说 `react state` 的更新问题？
+
+来自：`字节`
+
+<details>
+
+<summary>答案：</summary>
+
+**1, 异步更新问题**
+
+在 `React` 中，`setState` 方法在大多数情况下是异步更新的。这意味着当你调用 `setState` 后，状态不会立即更新，`React` 会将多个 `setState` 调用合并为一个更新操作来提高性能。例如，在以下代码中：
+
+</details>
