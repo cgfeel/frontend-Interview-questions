@@ -627,7 +627,7 @@ setState((count) => {
   return num;
 });
 
-// effect recommended
+// effect subscript recommended
 useEffect(() => {
   console.log(count);
 }, [count]);
