@@ -86,7 +86,7 @@ obj.[x];
 // 参数：操作对象、属性名称，`this` 指向
 [[Get]](obj, "x", obj);
 
-// `this` 指向存在是为了属性有可能是一个访问器，访问器中有可能会用到 `this`
+// `this` 指的向存在，是为了属性有可能是一个访问器，访问器中有可能会用到 `this`
 const obj = {
   get x() {
     return this.y;
