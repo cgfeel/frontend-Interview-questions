@@ -57,6 +57,84 @@ console.log(map["true"]);
 >
 > 10
 
-先看 `map` 对象，存在 `get` 和 `set` 方法，当 `set` 一个 `true` 为 0，获取 `true` 也一定是 0，但是获取字符 `'true'` 的时候由于 `key` 不存在拿到 `undefined`
+先看 `Map` 对象，存在 `get` 和 `set` 方法，当 `set` 一个 `true` 为 0，获取 `true` 也一定是 0，但是获取字符 `'true'` 的时候由于 `key` 不存在拿到 `undefined`
+
+这里简短补个内容：`Map` 和 `WeakMap` 的区别：
+
+| 分类     | `Map`                    | `WeakMap`                         |
+| -------- | ------------------------ | --------------------------------- |
+| `key`    | 任意类型                 | `Object`                          |
+| 内存管理 | 不能自动回收             | 自动回收                          |
+| 遍历     | 可便利                   | 只能取值不可遍历                  |
+| 使用场景 | 缓存数据、唯一标识的集合 | 需要自动回收，如 `Dom` 关联的方法 |
+
+> 内存管理即引用机制，当设置 `key` 为一个 `Object` 时，除了集合对象其他地方不再使用的时候是否自动回收
+
+然后再来看对象取值，以下内容来自 `渡一`：属性读取方式，有这么一段代码
+
+```js
+const obj = {};
+const x = 'x';
+
+obj.x;
+obj.[x];
+```
+
+浏览器对 `js` 对象的读和写会转成一个内部方法，这里以 `[[Get]]` 和 `[[Set]]`，它们都有 3 个参数：
+
+```js
+// 参数：操作对象、属性名称，`this` 指向
+[[Get]](obj, "x", obj);
+
+// `this` 指向存在是为了属性有可能是一个访问器，访问器中有可能会用到 `this`
+const obj = {
+  get x() {
+    return this.y;
+  },
+};
+```
+
+在读取属性时分两种读法：
+
+- `obj.x`：直接将属性 `x` 转换成字符串
+- `obj[]`：这里会将属性做一个处理，判断是否为 `Symbol`
+
+```js
+// isSymbol 为自定义演示用，浏览器内部判断方法不一样
+const symbolTag = "[object Symbol]";
+const isObject = (value) => typeof value === "object" && value !== null;
+const isSymbol = (value) =>
+  value === "symbol" ||
+  (isObject(value) && Object.prototype.toString.call(value) === symbolTag);
+
+obj.x; // [[Get]](obj, 'x', obj)
+obj[x]; // [[Get]](obj, isSymbol(x) ? x : String(x) : obj)
+```
+
+结合上面总结，来看数组：
+
+```js
+const arr = [];
+arr[0] = 1;
+arr["0"] = 2;
+```
+
+这里得到长度为 1 的数组，且下标 0 的值为 2：
+
+- 以为 `[]` 中的 `key` 都不是 `Symbol`，全部转换成字符 `'0'`
+
+结合上面总结，将 `Object` 作为 `key`：
+
+```js
+const obj = {};
+obj[{ a: 1 }] = 1;
+obj[{ a: 2 }] = 2;
+
+console.log(obj);
+```
+
+最终会将 `key` 转换成字符为 `[object Object]`，最后得到：
+
+- `{ '[object Object]': 2 }`
 
 </details>
