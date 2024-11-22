@@ -74,7 +74,7 @@ https://github.com/cgfeel/frontend-interview-questions/blob/main/document/scene.
 
 ### 前端输出篇
 
-https://github.com/cgfeel/frontend-interview-questions/blob/main/document/scene.md
+https://github.com/cgfeel/frontend-interview-questions/blob/main/document/print.md
 
 ### 网络篇
 
