@@ -52,7 +52,11 @@ console.log(map["true"]);
 <summary>答案：</summary>
 
 > 0
+>
 > undefined
+>
 > 10
+
+先看 `map` 对象，存在 `get` 和 `set` 方法，当 `set` 一个 `true` 为 0，获取 `true` 也一定是 0，但是获取字符 `'true'` 的时候由于 `key` 不存在拿到 `undefined`
 
 </details>
