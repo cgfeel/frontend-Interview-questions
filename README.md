@@ -72,6 +72,10 @@ https://github.com/cgfeel/frontend-interview-questions/blob/main/document/open.m
 
 https://github.com/cgfeel/frontend-interview-questions/blob/main/document/scene.md
 
+### 前端输出篇
+
+https://github.com/cgfeel/frontend-interview-questions/blob/main/document/scene.md
+
 ### 网络篇
 
 https://github.com/cgfeel/frontend-interview-questions/blob/main/document/network.md
