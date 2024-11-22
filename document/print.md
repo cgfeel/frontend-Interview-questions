@@ -30,3 +30,29 @@ console.log("外面 ", a, window.a);
 输出：https://codepen.io/levi0001/pen/BaXgKoW
 
 > 原理目前还不清楚，只能说严格模式下产生的结果可能会符合大多数人想法
+
+### 🔴 请说出对象的输出？
+
+来自：`群友`、`渡一`
+
+```js
+const map = new Map();
+map.set(true, 0);
+map[true] = 10;
+
+console.log(map.get(true));
+console.log(map.get("true"));
+console.log(map["true"]);
+```
+
+输出：https://codepen.io/levi0001/pen/XWvvayV
+
+<details>
+
+<summary>答案：</summary>
+
+> 0
+> undefined
+> 10
+
+</details>
