@@ -100,7 +100,7 @@ const obj = {
 - `obj[]`：这里会将属性做一个处理，判断是否为 `Symbol`
 
 ```js
-// isSymbol 为自定义演示用，浏览器内部判断方法不一样
+// isSymbol 为自定义演示用，和浏览器内部判断方法不一样
 const symbolTag = "[object Symbol]";
 const isObject = (value) => typeof value === "object" && value !== null;
 const isSymbol = (value) =>
