@@ -138,3 +138,40 @@ console.log(obj);
 - `{ '[object Object]': 2 }`
 
 </details>
+
+### 🔴 请根据 `iframe` 说出最终输出结果？
+
+来自：`群友`
+
+```js
+var iframe = document.createElement("iframe");
+document.documentElement.appendChild(iframe);
+
+iframe.src = "javascript: var a = [];";
+var a, b;
+
+setTimeout(() => {
+  a = iframe.contentWindow.a;
+  b = [];
+
+  console.log(a instanceof Array, b instanceof Array);
+  console.log(Array.isArray(a), Array.isArray(b));
+}, 0);
+```
+
+输出：https://codepen.io/levi0001/pen/KwPPdPe
+
+<details>
+
+<summary>答案：</summary>
+
+> false, true
+>
+> true, true
+
+变量 `a` 和 `b` 都是 `array`，不同的是它们的原型链不同，`a` 的原型链指向 `iframe.contentWindow.Array`，而 `b` 的原型链是 `window.Array`（即 `Array`）。
+
+- 在第一个判断中 `Array` 为全局对象 `window` 的属性，因此得到 `false, true`
+- 而 `Array.is` 仅用于判断对象是不是 `Array`，不需要考虑原型链，因此得到 `true, true`
+
+</details>
